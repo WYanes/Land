@@ -5737,7 +5737,7 @@ namespace Land.Droid
 			public const int earth = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int google_logo = 2131165283;
+			public const int goo = 2131165283;
 			
 			// aapt resource value: 0x7F070064
 			public const int ic_mtrl_chip_checked_black = 2131165284;
