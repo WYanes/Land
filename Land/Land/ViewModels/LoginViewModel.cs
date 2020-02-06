@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Land.ViewModels
-{
+{ using Xamarin.Forms;
+    using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     public class LoginViewModel
     {
@@ -32,7 +33,33 @@ namespace Land.ViewModels
         #endregion
 
         #region Commands
-        public ICommand LoginCommand { get; set; }
+        public ICommand LoginCommand {
+            get
+            {
+                return new RelayCommand(Login);
+            } 
+             
+        }
+
+        private async void Login()
+        {
+            if(string.IsNullOrEmpty(this.Email))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                    "You must enter a email.",
+                    "Accept");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Password))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                    "You must enter a Password.",
+                    "Accept");
+                return;
+            }
+
+        }
         #endregion
     }
 }
