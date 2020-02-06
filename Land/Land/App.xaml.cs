@@ -4,13 +4,15 @@ using Xamarin.Forms.Xaml;
 
 namespace Land
 {
+    using Xamarin.Forms;
+    using Views;
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            this. MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
