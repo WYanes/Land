@@ -93,7 +93,7 @@
                          VerticalOptions="EndAndExpand"
                          HorizontalOptions="Center">
                     <Image
-                    Source="face.png"
+                    Source="faceb.png"
                     WidthRequest="100">
                     </Image>
                     <Image
