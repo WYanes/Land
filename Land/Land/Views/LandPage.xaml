@@ -8,7 +8,8 @@
              Title="Lands"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            BindingContext="{Binding Land}">
             <Label Padding="5" 
                    Text="LandPage"
                    FontSize="Large"/>

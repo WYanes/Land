@@ -4,6 +4,7 @@
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using System.ComponentModel;
+    using Views;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -14,6 +15,7 @@
         #endregion
 
         #region Attributes
+        private string email;
         private string password;
         private bool isRunning;
         private bool isEnabled;
@@ -22,16 +24,17 @@
         #region Properties
         public string Email
         {
-            get;
-            set;
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
         }
         public string Password
         {
-            get{return this.password;}
-            set{SetValue(ref this.password, value);}
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
 
-        public bool IsRunning {
+        public bool IsRunning
+        {
             get { return this.isRunning; }
             set { SetValue(ref this.isRunning, value); }
         }
@@ -50,6 +53,8 @@
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+            this.Email = "willianguitarflash6@gmail.com";
+            this.Password = "2345";
         }
         #endregion
 
@@ -99,9 +104,11 @@
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            await Application.Current.MainPage.DisplayAlert("OK",
-                    "Jejejej",
-                    "Accept");
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Land = new LandViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandPage());
         }
         #endregion
     }
