@@ -101,8 +101,8 @@
                 return;
             }
 
-            this.IsRunning = true;
-            this.IsEnabled = false;
+            this.IsRunning = false;
+            this.IsEnabled = true;
 
             this.Email = string.Empty;
             this.Password = string.Empty;
