@@ -32,18 +32,57 @@ namespace Land.ViewModels
         }
         public string Password
         {
-            get;
-            set;
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                if (this.password != value)
+                {
+                    this.password = value;
+                    PropertyChanged?.Invoke(
+                        this,
+                        new PropertyChangedEventArgs(nameof(this.Password)));
+                }
+            }
         }
 
-        public bool IsRunning { get; set; }
+        public bool IsRunning {
+            get
+            {
+                return this.isRunning;
+            }
+            set
+            {
+                if (this.isRunning != value)
+                {
+                    this.isRunning = value;
+                    PropertyChanged?.Invoke(
+                        this,
+                        new PropertyChangedEventArgs(nameof(this.IsRunning)));
+                }
+            }
+        }
 
         public bool IsRemembered { get; set; }
 
         public bool IsEnabled
         {
-            get;
-            set;
+            get
+            {
+                return this.isEnabled;
+            }
+            set
+            {
+                if (this.isEnabled != value)
+                {
+                    this.isEnabled = value;
+                    PropertyChanged?.Invoke(
+                        this,
+                        new PropertyChangedEventArgs(nameof(this.IsEnabled)));
+                }
+            }
         }
         #endregion
 
@@ -85,13 +124,21 @@ namespace Land.ViewModels
                 return;
             }
 
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
             if (this.Email != "willianguitarflash6@gmail.com" || this.Password != "2345")
             {
+                this.IsRunning = false;
+                this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert("Error",
                     "Error email or password incorrect",
                     "Accept");
                 return;
             }
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert("OK",
                     "Jejejej",
