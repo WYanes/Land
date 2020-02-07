@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Land.ViewModels
+﻿namespace Land.ViewModels
 {
     using Xamarin.Forms;
     using GalaSoft.MvvmLight.Command;
@@ -83,7 +79,6 @@ namespace Land.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Error",
                     "You must enter a Password.",
                     "Accept");
-                this.Password = string.Empty;
                 return;
             }
 
@@ -97,11 +92,12 @@ namespace Land.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Error",
                     "Error email or password incorrect",
                     "Accept");
+                this.Password = string.Empty;
                 return;
             }
 
-            this.IsRunning = false;
-            this.IsEnabled = true;
+            this.IsRunning = true;
+            this.IsEnabled = false;
 
             await Application.Current.MainPage.DisplayAlert("OK",
                     "Jejejej",
