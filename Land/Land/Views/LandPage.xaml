@@ -11,7 +11,7 @@
         <StackLayout
             BindingContext="{Binding Land}">
             <Label Padding="5" 
-                   Text="LandPage"
+                   Text="Land Page"
                    FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
