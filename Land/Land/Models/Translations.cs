@@ -2,7 +2,7 @@
 {
     using Newtonsoft.Json;
 
-    class Translations
+    public class Translations
     {
         [JsonProperty(PropertyName = "de")]
         public string Germany { get; set; }
@@ -32,6 +32,6 @@
         public string Croatian { get; set; }
 
         [JsonProperty(PropertyName = "fa")]
-        public string Persian { get; set; }
+        public string Danish { get; set; }
     }
 }
